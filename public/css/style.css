@@ -1,0 +1,23 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: fantasy;
+}
+
+body {
+    background-image: url("game.jpeg")
+}
+
+h3{
+    color: white;
+    font-size: xx-large;
+}
+
+.card-deck{
+    margin: 20px 10px;
+}
+
+.card-body {
+    margin-left: auto;
+    margin-right: auto;
+}

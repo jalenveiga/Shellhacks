@@ -1,0 +1,53 @@
+<%- include('./includes/initial.ejs') %>
+
+<title>Login</title>
+<link rel="stylesheet" href="/css/body.css">
+
+    
+        <link rel="stylesheet" href="/css/signup.css">
+        <style>
+        
+          body{ 
+  
+              background-image: url('cl.jpg');
+              background-size: cover; 
+  
+          }
+  
+      </style>
+    </head>
+       
+      
+    <body>
+      <%- include('./includes/navigation.ejs') %> 
+      
+        <img src="joycon1.png" alt="joycon" width="250" height="150">
+        <center> <h1 style=font-size:65px; > <p style="color:white;"> Game Over </p> </h1> </center>   
+    
+        
+        <div id="login-box">
+            <div class="left">
+              <h1>Sign up</h1>
+              <form method="POST" action="/signup">
+                <input type="text" name="username" placeholder="Username" />
+                <input type="text" name="email" placeholder="E-mail" />
+                <input type="password" name="password" placeholder="Password" />
+                <input type="password" name="password2" placeholder="Retype password" />
+                
+                <input type="submit" name="signup_submit" value="Sign me up" />
+              </form>
+             
+            </div>
+            
+            <div class="right">
+              <span class="loginwith">Sign in with<br />social network</span>
+              
+              <button class="social-signin facebook">Log in with facebook</button>
+              <button class="social-signin twitter">Log in with Twitter</button>
+              <button class="social-signin google">Log in with Google+</button>
+            </div>
+            <div class="or">OR</div>
+          </div>
+        
+       
+          <%- include('./includes/end.ejs') %>

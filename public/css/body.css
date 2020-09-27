@@ -1,0 +1,39 @@
+body {
+    background-color: black;
+     }
+     
+     .flex-container {
+       display: -webkit-flex;
+       display: flex;  
+       -webkit-flex-flow: row wrap;
+       flex-flow: row wrap;
+       font-weight: bold;
+       text-align: center;
+     }
+     
+     .flex-container > * {
+       padding: 10px;
+       flex: 1 100%;
+     }
+     
+     .main {
+       text-align: left;
+       background: black;
+       
+     }
+     
+     .aside1 {background: black;}
+     .aside2 {background: black;}
+     
+     .landingpageIconSection{
+         border-radius:50%;
+     }
+
+     @media all and (min-width: 768px) {
+       .aside { flex: 1 auto; }
+       .main    { flex: 3 0px; }
+       .aside1 { order: 1; }
+       .main    { order: 2; }
+       .aside2 { order: 3; }
+       .footer  { order: 4; }
+     }

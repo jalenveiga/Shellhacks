@@ -1,0 +1,45 @@
+<%- include('./includes/initial.ejs') %>
+
+<title>BLogs</title>
+<link rel="stylesheet" href="/css/body.css">
+</head>
+<body>
+    <%- include('./includes/navigation.ejs') %>
+    <div class="alert alert-success" role="alert" style="margin:auto; width:50%; text-align:center;">
+      <h1> BLOGS </h1> 
+      </div>
+      <br><br><br>
+      
+     
+      <div style="width:70%; margin:auto" class="jumbotron">
+        <h1 class="display-4">Hello, world!</h1>
+        <% if(!isBlog) { %> <p class="lead">No Blogs Posted Yet</p><% } %>
+        <p class="lead"><span class="badge badge-danger"><%= blog.length%>   </span> Blogs posted! Keep 'em coming!</p>
+        <a class="btn btn-primary btn-lg" href="/write-blog" role="button">Write Blog</a>
+      </div>
+      <br>
+
+      <% for(let i=blog.length-1;i>=0;i--) { %>
+        <br><br><br>
+        <div style="width:70%; margin:auto; height:430px; text-align: center;" class="jumbotron">
+          <h1 class="display-4"><%= blog[i].title %></h1> <hr>
+          <p class="lead"><b>Author:</b><span class="badge badge-success"><%= blog[i].name%></span>  </p>
+          <p class="lead"><b>Posted:</b><span class="badge badge-secondary"><%= blog[i].date%></span> </p>
+         <p> <button type="button" style="cursor:auto" class="btn btn-primary">Like: <%= blog[i].like %> </button>
+          <button type="button" style="cursor:auto" class="btn btn-secondary">Comments:  <%= blog[i].comment.length %> </button> </p>
+        <p><a class="btn btn-primary btn-lg" href="/full-blog/<%=blog[i]._id%>" role="button">Read Blog</a></p>  
+        <% if(blog[i].userid === CurrUserId) { %>
+          <form action="/delBlog/<%=blog[i]._id%>" method="POST">
+           <button type="submit"><span class="badge badge-danger">Delete</span></button>   
+          </form>
+        <% } %>
+        </div>
+     <% } %>
+
+
+
+
+
+
+
+ <%- include('./includes/end.ejs') %>

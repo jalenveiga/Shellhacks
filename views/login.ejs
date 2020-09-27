@@ -1,0 +1,70 @@
+<%- include('./includes/initial.ejs') %>
+
+<title>Login</title>
+<link rel="stylesheet" href="/css/body.css">
+<style>   
+Body {  
+  font-family: fantasy, Helvetica, sans-serif; 
+  background-image: url('cl.jpg');
+  background-size: cover; 
+  background-color: rgb(0, 0, 0);  
+}  
+button {   
+       background-color: #389ad3;   
+       width: 100%;  
+        color: rgb(255, 255, 255);   
+        padding: 15px;   
+        margin: 10px 0px;   
+        border: none;   
+        cursor: pointer;   
+         }   
+
+ input[type=text],input[type=password] {   
+        width: 100%;   
+        margin: 8px 0;  
+        padding: 12px 20px;   
+        display: inline-block;   
+        border: 2px solid rgb(38, 182, 248);   
+        box-sizing: border-box;   
+    }  
+ button:hover {   
+        opacity: 0.7;   
+    }   
+
+        
+     
+ .container {   
+        width: 400px;
+        height: 550px;
+        padding: 25px;   
+        border: 1px solid grey;
+        box-sizing: border-box;
+        background-color: whitesmoke;  
+    }   
+</style>   
+</head>
+<body>
+    <%- include('./includes/navigation.ejs') %> 
+      <img src="joycon1.png" alt="joycon" width="250" height="150">
+     
+    <center> <h1 style=font-size:65px; > <p style="color:white;"> Game Over </p> </h1> </center>   
+    <form method="POST" action="/login">  
+        <center>
+        <div class="container">  
+          
+            <center> <h1>  Login </p> </h1> </center> 
+            <br> <label>Username : </label>   
+            <input type="text" placeholder="Enter Username" name="email" required> <br> <br> 
+            <label>Password : </label>   
+            <input type="password" placeholder="Enter Password" name="password" required>  
+            <br> <button type="submit">Login</button>   <br>
+            <br> <input type="checkbox" checked="checked"> Remember me <br>  
+            
+            <br> <a href="#"> Forgot password? </a> 
+          
+        </div> 
+    </center>  
+    </form>     
+
+    
+ <%- include('./includes/end.ejs') %>

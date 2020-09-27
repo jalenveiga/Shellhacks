@@ -1,0 +1,42 @@
+<%- include('./includes/initial.ejs') %>
+
+<title>BLogs</title>
+<link rel="stylesheet" href="/css/body.css">
+<style>
+    .input-group{
+        width:50%;
+        margin:auto
+    }
+</style>
+</head>
+<body>
+    <%- include('./includes/navigation.ejs') %>
+
+    <div class="alert alert-success" role="alert" style="margin:auto; width:50%; text-align:center;">
+        <h1> Write A Blog</h1> 
+        </div>
+        <br><br>
+        <form action="/write-blog" method="POST">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Topic:</span>
+            </div>
+            <input name="topic" type="text" class="form-control" placeholder="Topic" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"></span>
+            </div>
+            <textarea name="desc" class="form-control" style="height:500px; overflow-y: auto; resize:none "  aria-label="With textarea"></textarea>
+          </div>
+          <button style="position:relative; left:48%; top:10px " type="submit" class="btn btn-success">Publish!!</button>
+        </form>
+
+
+
+
+
+
+
+
+    <%- include('./includes/end.ejs') %>

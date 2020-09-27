@@ -1,0 +1,73 @@
+<%- include('./includes/initial.ejs') %>
+
+    <title>YourFriend!</title>
+    <link rel="stylesheet" href="/css/body.css">
+   
+
+
+  </head>
+  <body>
+    
+    <%- include('./includes/navigation.ejs') %>
+    <div class="alert alert-success" style="width:50%" role="alert">
+        <h1><%=topic%></h1>
+        <h3 style="float:right">- <%= username %></h3>
+        <h4>Date:   <%=date%></h4>
+      </div>
+      <div class="jumbotron jumbotron-fluid" style="height:600px; margin:auto; width:80%; overflow-y:auto">
+        <div class="container">
+          <p class="lead"><%=desc%></p>
+        </div>
+      </div>
+      <form action="/l-blog/<%=blogid%>" method="POST">
+        <div style="position: relative; left:45%; top:10px"class="btn-group" role="group" aria-label="Basic example">
+          <button type="submit" name="like" class="btn btn-secondary">Like: <%=like%> </button>  
+        </div>
+      </form>
+      
+      <br><br><br>
+      <form action="/c-blog/<%=blogid%>" method="POST">
+        <div style="width:70%; " class="input-group">
+            <div  class="input-group-prepend">
+              <button type="submit"><span class="input-group-text">Click here to comment</span></button>
+            </div>
+            <textarea style="resize:none;" class="form-control" name="comment" aria-label="With textarea"></textarea>
+          </div>
+         
+      </form>
+      
+      <% if(comment.length <=0) { %>        
+<br><br>
+<div style="color:blanchedalmond; width:60%;" class="media">
+    
+    <div class="media-body">
+      <h2 class="mt-0">NO COMMENTS YET</h2>
+    </div>
+  </div>
+
+  <% } %>
+  
+<% for(let i=comment.length-1;i>=0; i--) { %>
+  <br><br>
+<div style="color:blanchedalmond; width:60%; " class="media">
+    
+    <div class="media-body">
+      <h4 class="mt-0"><span class="badge badge-success"> <%=comment[i].username%></span></h4>
+      <h4 class="mt-0"> <span class="badge badge-success"> <%=comment[i].date%></span></h4>
+      <h1 class="mt-0"><%=comment[i].comments%></h1>
+      <% if(comment[i].userid === CurrUserId) { %>
+        <form action="/delCom/<%=comment[i]._id%>" method="POST">
+         <button type="submit"><span class="badge badge-danger">Delete</span></button> 
+          <input name="blogid" type="hidden" value="<%= blogid%>">
+        </form>
+      <% } %>
+    </div>
+  </div>
+
+  <% } %>
+
+
+  
+
+
+    <%- include('./includes/end.ejs') %>
